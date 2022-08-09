@@ -16,19 +16,23 @@ module.exports = {
         textGradient: 'linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%)',
         barGradient: 'linear-gradient(103.22deg, #AE67FA 13.86%, #F49867 99.55%)',
       },
-    },
-    animation: {
-      scaleUpCenter: 'scaleUp 500ms ease'
-    },
-    keyframes: {
-      scaleUp: {
-        '0%' : {
-          transform: 'scale(0.3)',
-        },
-        '100%' : {
-          transform: 'scale(1)',
+      animation: {
+        scaleUpCenter: 'scaleUp 500ms ease'
+      },
+      keyframes: {
+        scaleUp: {
+          '0%' : {
+            transform: 'scale(0.3)',
+          },
+          '100%' : {
+            transform: 'scale(1)',
+          },
         },
       },
+      gridTemplateRows: {
+        blogRow: '450px',
+        mobileRow: '350px'
+      }
     },
   },
   plugins: [],

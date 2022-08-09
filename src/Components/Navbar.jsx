@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Menu = ({ mobile, handleClick }) => {
@@ -55,13 +57,27 @@ const Menu = ({ mobile, handleClick }) => {
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const div = useRef();
 
   const handleClick = () => {
     setToggleMenu((prev) => prev === true && false);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 90) {
+        return (div.current.style.backgroundColor = "#031B34");
+      }
+
+      div.current.style.backgroundColor = "transparent";
+    });
+  }, []);
+
   return (
-    <div className="flex justify-between flex-1 items-center px-5 py-[1rem] md:py-[2rem] md:px-[6rem] lg:px-[3rem] duration-500 ">
+    <div
+      ref={div}
+      className="fixed top-0 left-0 right-0 z-40 px-5 py-[1rem] md:py-[2rem] md:px-[6rem] lg:px-[3rem] duration-500 transition-all "
+    >
       <div className="flex-1 flex justify-between lg:justify-start items-center flex-row">
         <div className="mr-[2rem]">
           <img src={"/img/logo.svg"} alt="logo" className="w-[62.56px] h-4 " />

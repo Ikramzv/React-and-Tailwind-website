@@ -7,7 +7,7 @@ function App() {
   
   useEffect(() => {
     // Take elements whose offset parent is body
-    const filteredElements = Array.from(document.querySelectorAll('body *')).filter(element => element.offsetParent === document.body)
+    const filteredElements = Array.from(document.querySelectorAll('body * *')).filter(element => element.offsetParent === document.body)
 
     // If element's offsetTop greater than window height this means that this element is below than actual view . 
     // So I'm adding scrollerHides class which is hides the element
@@ -34,11 +34,11 @@ function App() {
 
   
   return (
-    <div className="">
-      <div className="flex gradient-bg flex-col" >
-        <Navbar />
+    <div className="!transform-none">
+      <div className="flex gradient-bg flex-col pt-[120px]" >
         <Header />
       </div>
+      <Navbar />
       <Brand />
       <WhatGPT3 />
       <Features />
